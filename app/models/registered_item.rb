@@ -1,0 +1,2 @@
+class RegisteredItem < ApplicationRecord
+end

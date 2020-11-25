@@ -16,3 +16,10 @@ import 'bootstrap';
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+// flash message fadeout
+$(document).on('turbolinks:load', function () {
+  setTimeout(function () {
+    $('.alert').fadeOut();
+  }, 2500);
+});

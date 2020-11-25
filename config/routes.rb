@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root 'page#home'
 
+  resources :items
+
   #redirect to /
   get '*path' => redirect('/')
 end
