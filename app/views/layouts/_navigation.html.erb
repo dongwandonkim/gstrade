@@ -11,6 +11,12 @@
           <%= link_to '아이템 목록', items_path, class: 'nav-link'%>
         </li>
       </ul>
+      
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to '아이템 생성', new_items_path, class: 'nav-link'%>
+        </li>
+      </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <%= link_to current_user.first_name, class: 'nav-link dropdown-toggle' %>

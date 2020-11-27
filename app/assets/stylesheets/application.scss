@@ -11,3 +11,7 @@ body {
   flex-shrink: none;
   background-color: lightblue;
 }
+
+#flash {
+  z-index: 99;
+}
