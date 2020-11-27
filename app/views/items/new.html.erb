@@ -13,12 +13,11 @@
       </div>
     </div>
     <div class="form-group row">
-      <%= f.label :description, "내용", class: "col-2 col-form-label text-light" %>
+      <%= f.label :image_tag, "이미지", class: "col-2 col-form-label text-light" %>
       <div class="col-10">
-        <%= f.text_area :description, class: 'form-control shadow rounded', placeholder: "내용" %>
+        <%= f.text_field :image_tag, class: 'form-control shadow rounded', placeholder: "이미지 주소" %>
       </div>
     </div>
-
     <div class="form-group row justify-content-center">
       <%= f.submit "저장", class: "btn btn-outline-light btn-lg"%>
     </div>
