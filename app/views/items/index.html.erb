@@ -1,24 +1,28 @@
-<h1>item lists</h1>
+
 <div class="container">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th class="text-center">이름</th>
-      <th class="text-center">설명</th>
-      <th class="text-center">날짜</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @items.each do |item| %>
-    <!-- 아이템 이름, 설명, 작성시간 -->
-      <tr>      
-        <td style="width: 20%" class="text-center"><%= truncate(item.name, length: 10) %></td>
-        <td style="width: 60%" class="text-center"><%= truncate(item.description, length: 50) %></td>
-        <td style="width: 20%" class="text-center"><%= time_ago_in_words(item.created_at) %></td>
+  <h1 class="text-center mt-4 mb-4">아이템 목록</h1>
+  <table class="table table-hover mb-4">
+    <thead>
+      <tr>
+        <th class="text-center">이름</th>
+        <th class="text-center">설명</th>
+        <th class="text-center">날짜</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <!-- 아이템 이름, 설명, 작성시간 -->
+        <tr id="item-list" data-href="<%= item_path(item) %>">
+          <td style="width: 20%" class="text-center"><%= truncate(item.name, length: 10) %></td>
+          <td style="width: 60%" class="text-center"><%= truncate(item.description, length: 50) %></td>
+          <td style="width: 20%" class="text-center"><%= time_ago_in_words(item.created_at) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if user_signed_in? %>
+    <%= link_to '아이템 생성', new_item_path, class:"btn btn-primary mt-4 mb-4"%>
+  <% end %>
 </div>
 
 <!-- TODO: 아이템 수정, 삭제, 새로만들기 링크 for authorized user -->

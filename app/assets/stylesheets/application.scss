@@ -12,6 +12,11 @@ body {
   background-color: lightblue;
 }
 
+#navbar {
+  position: relative;
+}
+
 #flash {
   z-index: 99;
+  right: 0rem;
 }
