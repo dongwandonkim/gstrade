@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   #before_action :authenticate_admin_user!
   #activeadmin
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   def index
     @items = Item.all
@@ -23,15 +24,12 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     if @item.update(params.require(:item).permit(:name, :description, :image_tag))
       flash[:notice] = "아이템 내용이 수정 되었습니다"
       redirect_to @item
@@ -41,8 +39,13 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
+  end
+
+  private
+  
+  def set_item
+    @item = Item.find(params[:id])
   end
 end

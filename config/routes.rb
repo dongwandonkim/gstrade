@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :items
 
+  resources :registered_items
+
   #redirect to /
   get '*path' => redirect('/')
 end

@@ -1,0 +1,2 @@
+module RegisteredItemsHelper
+end
