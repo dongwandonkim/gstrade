@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   #before_action :authenticate_admin_user!
   #activeadmin
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, except: [:index]
 
   def index
     @items = Item.all

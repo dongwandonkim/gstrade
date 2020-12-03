@@ -1,3 +1,9 @@
+<%# category_id: SELL=1, BUY=2 %>
+
 <% @registered_items.each do |item| %>
-  <%= item %>
+  <%= item.item.name %>
+  <%= item.price %>
+  <%= item.quantity %>
+  <%= item.user.in_game_id %>
+  <%= item.user.server %>
 <% end %>
