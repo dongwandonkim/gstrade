@@ -12,13 +12,26 @@ class RegisteredItemsController < ApplicationController
                                           :item_id, :user_id, :server_id, 
                                           :category_id, :quantity, :price)
                                          )
-    @registered_item.user.user_id = current_user
+    @registered_item.user_id = current_user.id
+    
+    # @registered_item = current_user.registered_items.build(registered_items_params)
+    
+    
     if @registered_item.save
       flash[:notice] = "등록되었습니다."
       redirect_to @registered_item
     else
       render 'new'
     end
-
   end
+
+  def search
+    
+  end
+
+  private
+  def registered_items_params
+    params.require(:registered_item).permit(:item_id, :user_id, :server_id, :category_id, :quantity, :price)
+  end
+
 end

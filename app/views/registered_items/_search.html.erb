@@ -1,0 +1,13 @@
+<form>
+  <div class="form-group d-flex align-items-center">
+    <%= form_tag search_items_path, method: :get do %>
+      
+        <%= text_field_tag :item, params[:item], placeholder: "아이템 검색", autofocus: true, class: "form-control form-control-lg"%>
+
+        <%= button_tag type: :submit, class: "btn btn-success m-1" do %>
+          <%= fa_icon 'search 2x' %>
+        <% end %>
+      
+    <% end %>
+  </div>
+</form>

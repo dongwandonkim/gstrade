@@ -1,6 +1,10 @@
+/*
+ *= require font-awesome
+*/
+
 @import 'bootstrap/scss/bootstrap';
-@import './navbar.css';
-@import './footer.css';
+
+@import './navbar';
 
 html,
 body {
