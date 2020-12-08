@@ -11,6 +11,16 @@
         </li>
       </ul>
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to '구매/판매 목록', registered_items_path, class: 'nav-link'%>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <%= link_to '구매/판매 등록', new_registered_item_path, class: 'nav-link'%>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= current_user.first_name %>
