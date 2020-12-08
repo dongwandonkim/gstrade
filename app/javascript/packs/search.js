@@ -35,6 +35,11 @@ $(document).on('turbolinks:load', function () {
           );
         });
       },
+      select: function (event, ui) {
+        //console.log(ui.item.setData);
+        //히든필드에 item.id값을 넣음
+        $('#itemHidden').val(ui.item.setData);
+      },
       //검색하기위한 최소 단어 입력
       minLength: 1,
     })
@@ -44,3 +49,12 @@ $(document).on('turbolinks:load', function () {
       //event.preventDefault();
     });
 });
+
+//prevent submission of forms when pressing Enter key in a text input
+$(document).on(
+  'keypress',
+  ':input:not(textarea):not([type=submit])',
+  function (e) {
+    if (e.which == 13) e.preventDefault();
+  }
+);
