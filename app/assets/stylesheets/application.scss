@@ -5,22 +5,31 @@
 @import 'bootstrap/scss/bootstrap';
 
 @import './navbar';
-
-html,
+@import './search';
 body {
-  height: 100%;
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-#sticky-footer {
-  flex-shrink: none;
-  background-color: lightblue;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
 
 #navbar {
-  position: relative;
+  position: fixed;
 }
 
 #flash {
   z-index: 99;
   right: 0rem;
+}
+
+footer.footer {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }

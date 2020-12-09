@@ -14,3 +14,11 @@
     <%= time_ago_in_words(@item.created_at) %>
   </div>
 </div>
+<% @item.registered_items.each do |item| %>
+<%= item.item.name %>
+<%= item.user.in_game_id %>
+<%= item.price %>
+<%= item.quantity %>
+<%= item.category_id %>
+<%= item.server_id %>
+<% end %>
