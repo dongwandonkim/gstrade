@@ -1,6 +1,8 @@
-<%= @registered_item.user.in_game_id %>
-<%= @registered_item.server_id %>
-<%= @registered_item.category_id %>
-<%= @registered_item.item.name %>
-<%= @registered_item.quantity %>
-<%= @registered_item.price %>
+<div class="container mt-5 p-3">
+  <%= @registered_item.user.in_game_id %>
+  <%= @registered_item.server.server_name %>
+  <%= @registered_item.buy_sell %>
+  <%= @registered_item.item.name %>
+  <%= @registered_item.quantity %>
+  <%= @registered_item.price %>
+</div>

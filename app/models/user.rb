@@ -6,4 +6,6 @@ class User < ApplicationRecord
   
   has_many :registered_items
   has_many :items, through: :registered_items
+
+  belongs_to :server
 end

@@ -1,8 +1,8 @@
 <%# category_id: SELL=2, BUY=1 %>
-<div class="container">
+<div class="container mt-5 p-3">
 <% @registered_items.each do |item| %>
   <div class="card text-center m-auto">
-    <% if item.category_id == 1 %>
+    <% if item.buy_sell == 1 %>
       <div class="card-header bg-info">
         구매
       </div>
@@ -16,7 +16,11 @@
       <p class="card-text">가격: <%= item.price %></p>
       <p class="card-text">갯수: <%= item.quantity %></p>
       <p class="card-text">아이디: <%= item.user.in_game_id %></p>
-      <p class="card-text">서버: <%= item.user.server %></p>
+      <% if !item.server %>
+        <p>서버입력안함</p>
+      <% else %>
+        <p class="card-text">서버: <%= item.server.server_name %></p>
+      <% end %>
       <a href="#" class="btn btn-primary">이 유저에게 바로 귓말하기</a>
     </div>
     <div class="card-footer text-muted">

@@ -6,59 +6,60 @@
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price" 
 %>
-
-<%= form_with(model: @registered_item, class: 'shadow p-3 mb-3 bg-info rounded', local: true) do |f| %>
-  <div class="form-group row">
-    <%= f.label :user_id, "게임내 아이디", class: "col-2 col-form-label text-light" %>
-    <div class="col-10">
-      <!-- TODO: change it to in_game_id -->
-      <%= f.text_field :user_name, value: @inGameid, class: 'form-control shadow rounded', placeholder: "아이디" %>
-      <!-- showing game_id but sending user_id-->
-      <%= f.hidden_field :user_id %>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <%= f.label :item_id, "아이템 이름", class: "col-2 col-form-label text-light" %>
-    <div class="col-10">
-      <input class="item-search form-control shadow rounded" autofocus>
-      <%# getting searched keyword and set the item_id to hidden field: search.js %>
-      <%= f.hidden_field :item_id, id: 'itemHidden' %>
-    </div>
-  </div>
-  
-  <div class="form-group row">
-    <%= f.label :server_id, "서버", class: "col-2 col-form-label text-light" %>
-    <div class="col-10">
-      <%= f.text_field :server_id, class: 'form-control shadow rounded', placeholder: "서버" %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :category_id, "판매/구매", class: "col-2 col-form-label text-light" %>
-    <div class="col-10">
-      <%= f.text_field :category_id, class: 'form-control shadow rounded', placeholder: "판매/구매" %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :quantity, "갯수", class: "col-2 col-form-label text-light" %>
-    <div class="col-10">
-      <%= f.text_field :quantity, class: 'form-control shadow rounded', placeholder: "갯수" %>
-    </div>
-  </div>
-  <div class="form-group row">
-    <%= f.label :price, "가격", class: "col-2 col-form-label text-light" %>
-    <div class="col-10">
-      <%= f.text_field :price, class: 'form-control shadow rounded', placeholder: "가격" %>
-    </div>
-  </div>
-
-  <div class="row justify-content-center">
-      <div class="form-group">
-        <%= f.submit "저장", class: "btn btn-outline-light btn-lg"%>
+<div class="container mt-5 p-3">
+  <%= form_with(model: @registered_item, class: 'shadow p-3 mb-3 bg-info rounded', local: true) do |f| %>
+    <div class="form-group row">
+      <%= f.label :user_id, "게임내 아이디", class: "col-2 col-form-label text-light" %>
+      <div class="col-10">
+        <!-- TODO: change it to in_game_id -->
+        <%= f.text_field :user_name, value: @inGameid, class: 'form-control shadow rounded', placeholder: "아이디" %>
+        <!-- showing game_id but sending user_id-->
+        <%= f.hidden_field :user_id %>
       </div>
-      <div class="form-group">
-        <%= link_to "취소", items_path, class: "btn btn-info btn-lg"%>
+    </div>
+
+    <div class="form-group row">
+      <%= f.label :item_id, "아이템 이름", class: "col-2 col-form-label text-light" %>
+      <div class="col-10">
+        <input class="item-search form-control shadow rounded" autofocus>
+        <%# getting searched keyword and set the item_id to hidden field: search.js %>
+        <%= f.hidden_field :item_id, id: 'itemHidden' %>
       </div>
-  </div>
-<% end %>
+    </div>
     
+    <div class="form-group row">
+      <%= f.label :server_id, "서버", class: "col-2 col-form-label text-light" %>
+      <div class="col-10">
+      <!-- options_from....._select 첫번째 인자는 컬렉션, 두번째는 value 값, 셋째는 label-->
+        <%= f.select :server_id, options_from_collection_for_select(@server, 'id', 'server_name'), prompt: "서버를 선택하세요", class: "form-control shadow rounded" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :buy_sell, "판매/구매", class: "col-2 col-form-label text-light" %>
+      <div class="col-10">
+        <%= f.text_field :buy_sell, class: 'form-control shadow rounded', placeholder: "판매/구매" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :quantity, "갯수", class: "col-2 col-form-label text-light" %>
+      <div class="col-10">
+        <%= f.text_field :quantity, class: 'form-control shadow rounded', placeholder: "갯수" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :price, "가격", class: "col-2 col-form-label text-light" %>
+      <div class="col-10">
+        <%= f.text_field :price, class: 'form-control shadow rounded', placeholder: "가격" %>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="form-group">
+          <%= f.submit "저장", class: "btn btn-outline-light btn-lg"%>
+        </div>
+        <div class="form-group">
+          <%= link_to "취소", items_path, class: "btn btn-info btn-lg"%>
+        </div>
+    </div>
+  <% end %>
+</div>
