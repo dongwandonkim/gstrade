@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_083500) do
+ActiveRecord::Schema.define(version: 2020_12_11_101208) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "first_name", default: "", null: false
@@ -42,11 +42,17 @@ ActiveRecord::Schema.define(version: 2020_11_25_083500) do
     t.integer "item_id"
     t.integer "user_id"
     t.integer "server_id"
-    t.integer "category_id"
+    t.boolean "buy_sell"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
+  end
+
+  create_table "servers", force: :cascade do |t|
+    t.string "server_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
