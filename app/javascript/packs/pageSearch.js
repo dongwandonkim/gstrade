@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function () {
-  $('.item-search')
+  $('.page-item-search')
     .autocomplete({
       source: function (request, response) {
         $.getJSON('/items.json', function (data) {
@@ -22,12 +22,7 @@ $(document).on('turbolinks:load', function () {
         });
       },
       select: function (event, ui) {
-        //console.log(ui.item.setData);
-        //히든필드에 item.id값을 넣음
-        if (ui.item) {
-          $('#itemHidden').val(ui.item.setData);
-        } else {
-        }
+        window.location = '/items/' + ui.item.setData;
       },
       change: function (event, ui) {
         if (ui.item == null || ui.item == undefined) {
@@ -45,12 +40,4 @@ $(document).on('turbolinks:load', function () {
       return false;
       //event.preventDefault();
     });
-  //prevent submission of forms when pressing Enter key in a text input
-  $(this).on(
-    'keypress',
-    ':input:not(textarea):not([type=submit])',
-    function (e) {
-      if (e.which == 13) e.preventDefault();
-    }
-  );
 });

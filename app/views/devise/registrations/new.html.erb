@@ -24,11 +24,12 @@
         </div>
         <!-- needed to change to select menu -->
         <div class="form-group col-md-6">
-          <label>서버를 선택하세요</label>
-          <select class="form-control form-control-md">
-            <option>서버</option>
-          </select>
-        </div>
+          <%= f.label :server, "서버", class: "col-2 col-form-label text-light" %>
+            <div class="col-10">
+          <!-- options_from....._select 첫번째 인자는 컬렉션, 두번째는 value 값, 셋째는 label-->
+          <%= f.select :server, options_from_collection_for_select(Server.all, 'id', 'server_name'), prompt: "서버를 선택하세요", class: "form-control shadow rounded" %>
+      </div>
+    </div>
       </div>
 
       <div class="form-group">

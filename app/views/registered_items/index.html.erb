@@ -2,7 +2,7 @@
 <div class="container mt-5 p-3">
 <% @registered_items.each do |item| %>
   <div class="card text-center m-auto">
-    <% if item.buy_sell == 1 %>
+    <% if item.buy_sell == true %>
       <div class="card-header bg-info">
         구매
       </div>

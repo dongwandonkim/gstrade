@@ -1,11 +1,13 @@
 header.masthead {
   position: relative;
-  background-color: #343a40;
-  //background: url('../images/Wiki-background.jpg') no-repeat center center;
-  background-size: cover;
-  padding-top: 8rem;
+  //background-color: #343a40;
+  background: url('./Wiki-background.jpg') no-repeat center;
+  //background-size: contain;
+  padding-top: 10rem;
   padding-bottom: 8rem;
-  height: 500px;
+  height: auto;
+  width: 100%;
+  //object-fit: cover;
 }
 
 header.masthead h1 {

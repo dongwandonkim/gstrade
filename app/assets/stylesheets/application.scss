@@ -3,9 +3,10 @@
 */
 
 @import 'bootstrap/scss/bootstrap';
-
+@import './page.scss';
 @import './navbar';
 @import './search';
+
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -27,6 +28,10 @@ h6 {
 #flash {
   z-index: 99;
   right: 0rem;
+}
+
+.item-buy-price {
+  color: darkgreen;
 }
 
 footer.footer {
