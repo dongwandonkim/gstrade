@@ -7,6 +7,10 @@ class RegisteredItemsController < ApplicationController
   def new
     @registered_item = RegisteredItem.new
     @inGameid = current_user.in_game_id
+<<<<<<< HEAD
+=======
+    @server = Server.all
+>>>>>>> ec2166b80d563fde0807a87b4eb6e4bd1f026367
 
   end
   # item_id: 1, user_id: 8, server_id: 1, category_id: 1, quantity: 3, created_at: "2020-12-03 05:56:16", updated_at: "2020-12-03 05:56:16", price:
@@ -26,7 +30,7 @@ class RegisteredItemsController < ApplicationController
   end
 
   def search
-    
+
   end
 
   def show
