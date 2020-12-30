@@ -1,31 +1,13 @@
 <%# category_id: SELL=2, BUY=1 %>
 <div class="container mt-5 p-3">
-<% @registered_items.each do |item| %>
-  <div class="card text-center m-auto">
-    <% if item.buy_sell == true %>
-      <div class="card-header bg-info">
-        구매
-      </div>
-    <% else %>
-      <div class="card-header bg-danger">
-        판매
-      </div>
-    <% end %>
-    <div class="card-body">
-      <h5 class="card-title"><%= item.item.name %></h5>
-      <p class="card-text">가격: <%= item.price %></p>
-      <p class="card-text">갯수: <%= item.quantity %></p>
-      <p class="card-text">아이디: <%= item.user.in_game_id %></p>
-      <% if !item.server %>
-        <p>서버입력안함</p>
-      <% else %>
-        <p class="card-text">서버: <%= item.server.server_name %></p>
-      <% end %>
-      <a href="#" class="btn btn-primary">이 유저에게 바로 귓말하기</a>
-    </div>
-    <div class="card-footer text-muted">
-      <%= time_ago_in_words(item.created_at) %> 전에 등록됨
-    </div>
+<div  data-controller="infinite-scroll" data-action="scroll@window->infinite-scroll#scroll">
+  <div data-infinite-scroll-target="entries">
+    <%= render 'posts' %>
   </div>
-<% end %>
+
+  <div data-infinite-scroll-target="pagination">
+    <%== pagy_nav(@pagy) %>
+  </div>
 </div>
+</div>
+

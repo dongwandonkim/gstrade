@@ -9,12 +9,15 @@ require('@rails/activestorage').start();
 require('channels');
 
 import 'bootstrap';
+import 'controllers';
+
 require('jquery');
 require('jquery-ui');
 
 require('./itemlist');
 require('./search');
 require('./pageSearch');
+
 //require('./stickyBar');
 
 // Uncomment to copy all static images under ../images to the output folder and reference

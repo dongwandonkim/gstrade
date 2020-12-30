@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   
-  has_many :registered_items
+  has_many :registered_items, dependent: :destroy
   has_many :items, through: :registered_items
 
   belongs_to :server

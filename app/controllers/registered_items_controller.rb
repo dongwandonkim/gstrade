@@ -2,15 +2,19 @@ class RegisteredItemsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
 
   def index
-    @registered_items = RegisteredItem.all
+    @pagy, @registered_items = pagy(RegisteredItem.order('created_at DESC'), items: 8)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: { entries: render_to_string(partial: 'posts', formats: [:html]), pagination: view_context.pagy_nav(@pagy)}
+      }
+    end
   end
+
   def new
     @registered_item = RegisteredItem.new
     @inGameid = current_user.in_game_id
-<<<<<<< HEAD
-=======
-    @server = Server.all
->>>>>>> ec2166b80d563fde0807a87b4eb6e4bd1f026367
 
   end
   # item_id: 1, user_id: 8, server_id: 1, category_id: 1, quantity: 3, created_at: "2020-12-03 05:56:16", updated_at: "2020-12-03 05:56:16", price:
@@ -25,7 +29,6 @@ class RegisteredItemsController < ApplicationController
     else
       flash[:alert] = "존재하지않는 아이템입니다"
       render 'new'
-
     end
   end
 

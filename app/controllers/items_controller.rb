@@ -3,10 +3,10 @@ class ItemsController < ApplicationController
   #before_action :authenticate_admin_user!
   #activeadmin
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_item, except: [:index]
+  before_action :set_item, except: [:index, :new, :create]
 
   def index
-    @items = Item.all
+    @items = Item.order('created_at DESC')
 
     respond_with @items
   end
