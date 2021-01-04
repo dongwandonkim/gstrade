@@ -34,7 +34,7 @@ export default class extends Controller {
       url: url,
       dataType: 'json',
       success: (data) => {
-        console.log(data);
+        //console.log(data);
         this.entriesTarget.insertAdjacentHTML('beforeend', data.entries);
         this.paginationTarget.innerHTML = data.pagination;
       },

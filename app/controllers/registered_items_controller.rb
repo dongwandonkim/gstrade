@@ -24,6 +24,10 @@ class RegisteredItemsController < ApplicationController
     @registered_item.user_id = current_user.id
     
     if @registered_item.save
+      ActionCable.server.broadcast 'room_channel',
+                                    registered_item: @registered_item,
+                                    item_info: @registered_item.item,
+                                    user_info: @registered_item.user
       flash[:notice] = "등록되었습니다."
       redirect_to @registered_item
     else

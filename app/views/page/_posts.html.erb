@@ -1,0 +1,63 @@
+
+  
+  <div class="col-6">
+    
+    <div id="buy_update"></div>
+
+    <span class="badge bg-primary mb-3">구매중인 물품</span>
+    <% @items.where(buy_sell: true).each do |item| %>
+        <div class="card mb-1">
+          <div class="row">
+            <div class="item-image col-3 mx-auto">
+              <img src="" alt="">
+              <span class="badge bg-primary">구매</span>
+            </div>
+            <div class="card-body col-9 mx-auto">
+              <p><%= link_to item.item.name, item_path(item.item_id), class: 'card-title font-weight-bold' %></p>
+              <p class="card-text">개수: <%= item.quantity %></p>
+              <p class="card-text item-buy-price font-weight-bold">가격: <%= item.price %></p>
+            </div>
+          </div>
+          <div class="card-footer d-flex bd-highlight align-items-center">
+            <span class="card-text mx-1 badge rounded-pill bg-info">서버: <%= item.server.server_name %></span>
+            <span class="card-text mx-1">아이디: <%= item.user.in_game_id %></span>
+            <div class="ml-auto">
+              <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'comments'%></a>
+              <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'copy'%> 구매 </a>
+            </div>
+          </div>      
+        </div>
+    <% end %> 
+  </div>
+
+  <div class="col-6">
+
+    <div id="sell_update"></div>
+    
+    <span class="badge bg-danger mb-3">판매중인 물품</span>
+    <% @items.where(buy_sell: false).each do |item| %> 
+        <div class="card mb-1">
+          <div class="row">
+            <div class="item-image col-3 mx-auto">
+              <img src="" alt="">
+              <span class="badge bg-danger">판매</span>
+            </div>
+            <div class="card-body col-9 mx-auto">
+              <p><%= link_to item.item.name, item_path(item.item_id), class: 'card-title font-weight-bold' %></p>
+              <p class="card-text">개수: <%= item.quantity %></p>
+              <p class="card-text item-buy-price font-weight-bold">가격: <%= item.price %></p>
+            </div>
+          </div>
+          <div class="card-footer d-flex bd-highlight align-items-center">
+            <span class="card-text mx-1 badge rounded-pill bg-info">서버: <%= item.server.server_name %></span>
+            <span class="card-text mx-1">아이디: <%= item.user.in_game_id %></span>
+            <div class="ml-auto">
+              <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'comments'%></a>
+              <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'copy'%> 구매 </a>
+            </div>
+          </div>      
+        </div>    
+    <% end %>
+  </div>
+
+

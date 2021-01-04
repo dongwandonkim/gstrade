@@ -1,16 +1,13 @@
 <header class="master-header">
- <%= render 'page/search'%>
+  <%= render 'page/search'%>
 </header>
 <div class="grey-bg section">
-  <div class="row">
-    
-   
-    <%# make items registered controller and view %>
-    <div class="container row mx-auto">
-      <%= render 'page/sell' %>
-      <%= render 'page/buy' %>
+  
+    <div class="container row mx-auto justify-content-center">
+      <%= render 'page/posts' %>
+
+      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
-    
-  </div>
+  
 </div>
 
