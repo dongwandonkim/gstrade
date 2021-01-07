@@ -1,20 +1,19 @@
-<div class="card mb-1">
+<div class="card mb-1" id="card-to-clone">
   <div class="row">
     <div class="item-image col-3 mx-auto">
       <img src="" alt="">
-      <span class="badge bg-primary">구매</span>
+      <span class="badge bg-primary" id="card-item-buysell">구매</span>
     </div>
     <div class="card-body col-9 mx-auto">
-      <p><%= link_to item.item.name, item_path(item.item_id), class: 'card-title font-weight-bold' %></p>
-      <p class="card-text">개수: <%= item.quantity %></p>
-      <p class="card-text item-buy-price font-weight-bold">가격: <%= item.price %></p>
+      <p><%= link_to item.item.name, item_path(item.item_id), class: 'card-title font-weight-bold', id: "card-item-name" %></p>
+      <p class="card-text" id="card-item-quantity">개수: <%= item.quantity %></p>
+      <p class="card-text item-buy-price font-weight-bold" id="card-item-price">가격: <%= item.price %></p>
     </div>
   </div>
   <div class="card-footer d-flex bd-highlight align-items-center">
-    <span class="card-text mx-1 badge rounded-pill bg-info">서버: <%= item.server.server_name %></span>
-    <span class="card-text mx-1">아이디: <%= item.user.in_game_id %></span>
+    <span class="card-text mx-1 badge rounded-pill bg-info" id="card-item-server">서버: <%= item.server.server_name %></span>
+    <span class="card-text mx-1" id="card-item-id">아이디: <%= item.user.in_game_id %></span>
     <div class="ml-auto">
-      <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'comments'%></a>
       <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'copy'%> 구매 </a>
     </div>
   </div>

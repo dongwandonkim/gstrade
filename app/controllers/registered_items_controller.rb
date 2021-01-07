@@ -17,7 +17,7 @@ class RegisteredItemsController < ApplicationController
     @inGameid = current_user.in_game_id
 
   end
-  # item_id: 1, user_id: 8, server_id: 1, category_id: 1, quantity: 3, created_at: "2020-12-03 05:56:16", updated_at: "2020-12-03 05:56:16", price:
+  
   def create
     @registered_item = RegisteredItem.new(registered_items_params)
     # @registered_item = current_user.registered_items.build(registered_items_params)
@@ -27,7 +27,8 @@ class RegisteredItemsController < ApplicationController
       ActionCable.server.broadcast 'room_channel',
                                     registered_item: @registered_item,
                                     item_info: @registered_item.item,
-                                    user_info: @registered_item.user
+                                    user_info: @registered_item.user,
+                                    server_info: @registered_item.server.server_name
       flash[:notice] = "등록되었습니다."
       redirect_to @registered_item
     else
