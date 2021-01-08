@@ -11,12 +11,7 @@ consumer.subscriptions.create('RoomChannel', {
 
   received(data) {
     // Called when there's incoming data on the websocket for this channel
-
-    if (data.registered_item.buy_sell == true) {
-      setItemInfoToNewCard(data);
-    } else {
-      setItemInfoToNewCard(data);
-    }
+    setItemInfoToNewCard(data);
   },
 });
 

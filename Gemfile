@@ -28,6 +28,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem "font-awesome-rails"
 gem "pagy"
+gem "redis"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
