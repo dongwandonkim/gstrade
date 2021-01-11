@@ -1,4 +1,4 @@
-<header class="master-header">
+<header class="page__container">
   <%= render 'page/search'%>
 </header>
 <div class="grey-bg section">    
@@ -6,7 +6,6 @@
     <div data-infinite-scroll-target="entries" class="row">
       <%= render 'page/posts' %>
     </div>
-
     <div data-infinite-scroll-target="pagination">
       <%== pagy_bootstrap_nav(@pagy) %>
     </div>

@@ -1,25 +1,12 @@
-header.masthead {
+header.page__container {
   position: relative;
-  //background-color: #343a40;
+  background-color: #343a40;
   background: url('./Wiki-background.jpg') no-repeat center;
   //background-size: contain;
   padding-top: 10rem;
   padding-bottom: 8rem;
   height: auto;
   width: 100%;
+  height: 500px;
   //object-fit: cover;
-}
-
-header.masthead h1 {
-  font-size: 2rem;
-}
-
-@media (min-width: 768px) {
-  header.masthead {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-  header.masthead h1 {
-    font-size: 3rem;
-  }
 }

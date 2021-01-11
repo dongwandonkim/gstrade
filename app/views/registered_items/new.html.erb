@@ -11,7 +11,7 @@
     <div class="form-group row">
       <%= f.label :user_id, "게임내 아이디", class: "col-2 col-form-label text-light" %>
       <div class="col-10">
-        <%= f.text_field :user_name, value: @inGameid, class: 'form-control shadow rounded', placeholder: "아이디" %>
+        <%= f.text_field :user_name, value: current_user.in_game_id, class: 'form-control-plaintext shadow rounded', readonly: true, placeholder: "아이디" %>
         <!-- showing game_id but sending user_id-->
         <%= f.hidden_field :user_id %>
       </div>
@@ -31,6 +31,7 @@
       <div class="col-10">
       <!-- options_from....._select 첫번째 인자는 컬렉션, 두번째는 value 값, 셋째는 label-->
         <%= f.select :server_id, options_from_collection_for_select(Server.all, 'id', 'server_name'), prompt: "서버를 선택하세요", class: "form-control shadow rounded" %>
+  
       </div>
     </div>
     <div class="form-group row">
@@ -39,6 +40,7 @@
         <%= f.text_field :buy_sell, class: 'form-control shadow rounded', placeholder: "판매/구매" %>
       </div>
     </div>
+
     <div class="form-group row">
       <%= f.label :quantity, "갯수", class: "col-2 col-form-label text-light" %>
       <div class="col-10">

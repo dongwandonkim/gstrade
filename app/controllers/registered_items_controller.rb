@@ -14,8 +14,6 @@ class RegisteredItemsController < ApplicationController
 
   def new
     @registered_item = RegisteredItem.new
-    @inGameid = current_user.in_game_id
-
   end
   
   def create
