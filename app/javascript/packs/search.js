@@ -46,7 +46,7 @@ $(document).on('turbolinks:load', function () {
       //event.preventDefault();
     });
   //prevent submission of forms when pressing Enter key in a text input
-  $(this).on(
+  $('.item-search').on(
     'keypress',
     ':input:not(textarea):not([type=submit])',
     function (e) {

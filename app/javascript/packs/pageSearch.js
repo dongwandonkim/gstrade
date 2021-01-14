@@ -35,9 +35,9 @@ $(document).on('turbolinks:load', function () {
       //검색하기위한 최소 단어 입력
       minLength: 1,
     })
-    .focus(function () {
+    .focus(function (e) {
+      e.preventDefault();
       $(this).parent().find('.error').remove();
       return false;
-      //event.preventDefault();
     });
 });

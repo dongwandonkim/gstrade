@@ -14,7 +14,8 @@
     <span class="card-text mx-1 badge rounded-pill bg-info">서버: <%= item.server.server_name %></span>
     <span class="card-text mx-1">아이디: <%= item.user.in_game_id %></span>
     <div class="ml-auto">
-      <a href="#" class="btn btn-primary mx-1"><%= fa_icon 'copy'%> 구매 </a>
+      <%= "<input type='text' value='/to #{item.user.in_game_id} 안녕하세요. <#{item.item.name}>을/를 #{item.price}에 판매합니다(gstrade.com)'>".html_safe%>
+      <button class="btn btn-primary mx-1"><%= fa_icon 'copy'%> 구매 </button>
     </div>
   </div>
 </div>

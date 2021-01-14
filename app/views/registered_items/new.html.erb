@@ -30,14 +30,24 @@
       <%= f.label :server_id, "서버", class: "col-2 col-form-label text-light" %>
       <div class="col-10">
       <!-- options_from....._select 첫번째 인자는 컬렉션, 두번째는 value 값, 셋째는 label-->
-        <%= f.select :server_id, options_from_collection_for_select(Server.all, 'id', 'server_name'), prompt: "서버를 선택하세요", class: "form-control shadow rounded" %>
-  
+        <%= f.select :server_id, 
+          options_from_collection_for_select(Server.all, 'id', 'server_name', current_user.server.id.to_s), 
+          {}, {class: "form-control"} 
+        %>
       </div>
+      <%= console %>
     </div>
     <div class="form-group row">
-      <%= f.label :buy_sell, "판매/구매", class: "col-2 col-form-label text-light" %>
+      <%= f.label :buy_sell, "구매/판매", class: "col-2 text-light" %>
       <div class="col-10">
-        <%= f.text_field :buy_sell, class: 'form-control shadow rounded', placeholder: "판매/구매" %>
+        <div class="form-check-inline">
+          <%= f.label :buy_sell, '구매', value: 'true', class: "form-check-label" %>
+          <%= f.radio_button :buy_sell, true, checked: true, class: "form-check-input" %>
+          </div>
+          <div class="form-check-inline">
+          <%= f.label :buy_sell, '판매', value: 'false', class: "form-check-label"%>
+          <%= f.radio_button :buy_sell, false, class: "form-check-input"%>
+        </div>
       </div>
     </div>
 
