@@ -1,21 +1,25 @@
-<div class="card mb-1" id="card-to-clone">
-  <div class="row">
-    <div class="item-image col-3 mx-auto">
-      <img src="" alt="">
-      <span class="badge bg-primary" id="card-item-buysell">구매</span>
+<div class="container">
+  <div class="card mb-2" id="card-to-clone">
+    <div class="card-body p-2">
+      <div class="row">
+        <div class="item-image col-3">
+          <img src="" alt="">
+          <span class="badge bg-primary" id="card-item-buysell">wtb</span>
+        </div>
+        <div class="col-9">
+          <p class="card-title font-weight-bold"><%= link_to item.item.name, item_path(item.item_id), id: "card-item-name" %></p>
+          <p class="card-text m-auto" id="card-item-quantity">Quantity: <%= item.quantity %></p>
+          <p class="card-text item-buy-price font-weight-bold" id="card-item-price">Price: <%= item.price %></p>
+        </div>
+      </div>
     </div>
-    <div class="card-body col-9 mx-auto">
-      <p><%= link_to item.item.name, item_path(item.item_id), class: 'card-title font-weight-bold', id: "card-item-name" %></p>
-      <p class="card-text" id="card-item-quantity">개수: <%= item.quantity %></p>
-      <p class="card-text item-buy-price font-weight-bold" id="card-item-price">가격: <%= item.price %></p>
-    </div>
-  </div>
-  <div class="card-footer d-flex bd-highlight align-items-center">
-    <span class="card-text mx-1 badge rounded-pill bg-info" id="card-item-server">서버: <%= item.server.server_name %></span>
-    <span class="card-text mx-1" id="card-item-id">아이디: <%= item.user.in_game_id %></span>
-    <div class="ml-auto">
-      <%= "<input type='text' value='/to #{item.user.in_game_id} 안녕하세요. <#{item.item.name}>을/를 #{item.price}에 구매합니다(gstrade.com)'>".html_safe%>
-      <button class="btn btn-primary mx-1"><%= fa_icon 'copy'%> 구매 </button>
+    <div class="card-footer d-flex bd-highlight align-items-center p-2">
+      <span class="card-text mx-1 badge rounded-pill bg-info" id="card-item-server">Server: <%= item.server.server_name %></span>
+      <span class="card-text mx-1" id="card-item-id"><%= link_to item.user.in_game_id, user_registered_items_path(item.user)%></span>
+      <div class="ml-auto">
+        <%#= "<input type='text' value='/to #{item.user.in_game_id} 안녕하세요. <#{item.item.name}>을/를 #{item.price}에 구매합니다(gstrade.com)'>".html_safe%>
+        <button class="btn btn-primary mx-1"><%= fa_icon 'copy'%></button>
+      </div>
     </div>
   </div>
 </div>

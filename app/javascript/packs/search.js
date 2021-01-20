@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function () {
         if (ui.item == null || ui.item == undefined) {
           $(this).val('');
           $(this).after(
-            '<div class="error text-danger">존재하지않는 아이템입니다</div>'
+            '<div class="error text-danger">Item is not in the database</div>'
           );
         }
       },

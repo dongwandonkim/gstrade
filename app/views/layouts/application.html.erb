@@ -12,11 +12,12 @@
     
   </head>
   <body>
-    <%= render 'layouts/navigation' %>
-    <%= render 'layouts/messages' %>
-    
-    <%= yield %>
-    <button id="scroll-to-top"><%= fa_icon 'arrow-up'%></button>
-    <%= render 'layouts/footer' %>
+    <div class="container">
+      <%= render 'layouts/navigation' %>
+      <%= render 'layouts/messages' %>
+      
+      <%= yield %>
+      <button id="scroll-to-top"><%= fa_icon 'arrow-up'%></button>
+    </div>  
   </body>
 </html>

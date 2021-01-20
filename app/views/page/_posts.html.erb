@@ -1,12 +1,12 @@
 <div class="col-6 mt-4">
-  <span class="badge bg-primary mb-3">구매중인 물품</span>
+  <span class="badge bg-primary mb-3">Want to Buy</span>
   <div id="buy_update">
     <%= render partial: 'page/components/buy_item', as: :item, collection: @items.where(buy_sell: true) %>
   </div>
 </div>
 
 <div class="col-6 mt-4">
-  <span class="badge bg-danger mb-3">판매중인 물품</span>
+  <span class="badge bg-danger mb-3">Want to Sell</span>
   <div id="sell_update">
     <%= render partial: 'page/components/sell_item', as: :item, collection: @items.where(buy_sell: false) %>
   </div>

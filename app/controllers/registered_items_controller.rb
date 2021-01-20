@@ -1,8 +1,9 @@
 class RegisteredItemsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_registered_item, only: [:edit, :show]
 
   def index
-    @pagy, @registered_items = pagy(RegisteredItem.order('created_at DESC'), items: 8)
+    @pagy, @registered_items = pagy( User.find(params[:user_id]).registered_items.order('created_at DESC'), items: 8)
 
     respond_to do |format|
       format.html
@@ -35,12 +36,11 @@ class RegisteredItemsController < ApplicationController
     end
   end
 
-  def search
-
+  def edit
   end
 
   def show
-    @registered_item = RegisteredItem.find(params[:id])
+    
   end
 
   private
@@ -48,4 +48,8 @@ class RegisteredItemsController < ApplicationController
     params.require(:registered_item).permit(:item_id, :user_id, :server_id, :buy_sell, :quantity, :price)
   end
 
+  def set_registered_item
+    @registered_item = RegisteredItem.find(params[:id])
+
+  end
 end

@@ -2,32 +2,31 @@
   <div class="card text-center m-auto" id="card">
     <% if item.buy_sell == true %>
       <div class="card-header bg-info">
-        구매
+        Want to Buy
       </div>
     <% else %>
       <div class="card-header bg-danger">
-        판매
+        Want to Sell
       </div>
     <% end %>
     <div class="card-body">
-      
       <% if !item.item %>
-        <h5 class="card-title">존재하지않는 아이템입니다</h5>
+        <h5 class="card-title">This post is not available</h5>
       <% else %>
-        <h5 class="card-title"><%= item.item.name %></h5>  
+        <h5 class="card-title"><%= link_to item.item.name, user_registered_item_path(item.user, item) %></h5>  
       <% end %>
-      <p class="card-text">가격: <%= item.price %></p>
-      <p class="card-text">갯수: <%= item.quantity %></p>
-      <p class="card-text">아이디: <%= item.user.in_game_id %></p>
+      <p class="card-text">Price: <%= item.price %></p>
+      <p class="card-text">Quantity: <%= item.quantity %></p>
+      <p class="card-text"><%= item.user.in_game_id %></p>
       <% if !item.server %>
-        <p>서버입력안함</p>
+        <p>Sever info is not available</p>
       <% else %>
-        <p class="card-text">서버: <%= item.server.server_name %></p>
+        <p class="card-text">Server: <%= item.server.server_name %></p>
       <% end %>
-      <a href="#" class="btn btn-primary">이 유저에게 바로 귓말하기</a>
+      <a href="#" class="btn btn-primary"><%= fa_icon 'copy'%></a>
     </div>
     <div class="card-footer text-muted">
-      <%= time_ago_in_words(item.created_at) %> 전에 등록됨
+      registered <%= time_ago_in_words(item.created_at) %> ago
     </div>
   </div>
 <% end %>

@@ -1,21 +1,25 @@
-<div class="card mb-1">
-  <div class="row">
-    <div class="item-image col-3 mx-auto">
-      <img src="" alt="">
-      <span class="badge bg-danger">판매</span>
-    </div>
-    <div class="card-body col-9 mx-auto">
-      <p><%= link_to item.item.name, item_path(item.item_id), class: 'card-title font-weight-bold' %></p>
-      <p class="card-text">개수: <%= item.quantity %></p>
-      <p class="card-text item-buy-price font-weight-bold">가격: <%= item.price %></p>
-    </div>
-  </div>
-  <div class="card-footer d-flex bd-highlight align-items-center">
-    <span class="card-text mx-1 badge rounded-pill bg-info">서버: <%= item.server.server_name %></span>
-    <span class="card-text mx-1">아이디: <%= item.user.in_game_id %></span>
-    <div class="ml-auto">
-      <input type="text" class="copyToClipboard">
-      <button class="btn btn-primary mx-1" id="copyBtn"><%= fa_icon 'copy'%> 구매 </button>
+<div class="container">
+  <div class="card mb-2">
+    <div class="card-body p-2">
+      <div class="row">
+        <div class="item-image col-3">
+          <img src="" alt="">
+          <span class="badge bg-danger">wts</span>
+        </div>
+        <div class="col-9">
+          <p class="card-title font-weight-bold"><%= link_to item.item.name, item_path(item.item_id)%></p>
+          <p class="card-text m-auto">Quantity: <%= item.quantity %></p>
+          <p class="card-text item-buy-price font-weight-bold">Price: <%= item.price %></p>
+        </div>
+      </div>
+      <div class="card-footer d-flex bd-highlight align-items-center p-2">
+        <span class="card-text mx-1 badge rounded-pill bg-info">Server: <%= item.server.server_name %></span>
+        <span class="card-text mx-1"><%= link_to item.user.in_game_id, user_registered_items_path(item.user) %></span>
+        <div class="ml-auto">
+          <input type="text" class="copyToClipboard">
+          <button class="btn btn-primary mx-1" id="copyBtn"><%= fa_icon 'copy'%></button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
